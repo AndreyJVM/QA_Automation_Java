@@ -94,9 +94,7 @@ testImplementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--Selenium Java-->
         <selenium-java.version>4.0.0</selenium-java.version>
-        <!--JUnit 4-->
         <junit.version>4.13.2</junit.version>
     </properties>
 
