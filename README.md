@@ -1,12 +1,29 @@
-## Репозиторий содержит фреймворки, которые использую для тестирования программного обеспечения:
+## The repository contains frameworks that I use for software testing:
 
 ---
-### Репозиторий разбит на модули:
+### The repository is divided into modules:
 
-###  **JUnit 5** 
-###  **TestNG**
-###  **Selenium**
-###  **Allure**
+###  [JUnit 5](https://junit.org/junit5/)
+
+![img.png](junit5/src/main/resources/junit5-site.png)
+
+---
+
+### [TestNG](https://testng.org/)
+
+![img.png](testNG/src/main/resources/testng-site.png)
+
+---
+
+###  [Selenium](https://www.selenium.dev/)
+
+![img.png](selenium/src/main/resources/selenium-site.png)
+
+---
+
+###  [Allure](https://allurereport.org/)
+
+![img.png](allure/resources/allure-site.png)
 
 ---
 ### Contacts:
