@@ -1,21 +1,14 @@
 package spting;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import spting.factory.WebDriverFactory;
 
 import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
 
-
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addExtensions(new File("selenium/merion/src/main/resources/chrome_extensions/User-Agent-Switcher-for-Chrome-Chrome-Web-Store.crx"));
-
-        WebDriver driver = new ChromeDriver();
-
+        WebDriver driver = WebDriverFactory.create("chrome");
         driver.get("https://google.com");
     }
 }
