@@ -10,6 +10,9 @@ public class QuitClose {
 
         driver.get("https://ya.ru");
 
+        /**
+         * Quits this driver, closing every associated window.
+         */
         driver.quit();
 
         /**
