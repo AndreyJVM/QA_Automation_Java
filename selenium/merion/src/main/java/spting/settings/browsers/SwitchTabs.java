@@ -7,7 +7,7 @@ import spting.factory.WebDriverFactory;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class Switch {
+public class SwitchTabs {
     public static void main(String[] args) {
         WebDriver driver = WebDriverFactory.create("chrome");
 
