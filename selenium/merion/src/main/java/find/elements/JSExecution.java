@@ -10,10 +10,18 @@ public class JSExecution {
 
         String jsRemoveBanner = "document.querySelector(\".tgb-wrapper\").remove()";
 
+        // Set value with run Window
+        String jsSetLocalStorage = "localStorage.setItem(\"bestScore\", \"7777777\")";
+
         WebDriver driver = WebDriverFactory.create("chrome");
         driver.get("https://mail.ru/");
+        ((JavascriptExecutor) driver).executeScript(jsRemoveBanner);
 
-        ((JavascriptExecutor)driver).executeScript(jsRemoveBanner);
+        driver.close();
+
+        driver.get("https://play2048.co/");
+        ((JavascriptExecutor) driver).executeScript(jsSetLocalStorage);
+        driver.navigate().refresh();
 
         driver.quit();
     }
