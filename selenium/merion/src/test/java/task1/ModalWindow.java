@@ -1,7 +1,6 @@
 package task1;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -20,16 +19,10 @@ public class ModalWindow {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("http://the-internet.herokuapp.com/entry_ad");
 
-        Thread.sleep(3000);
+        Thread.sleep(10_000);
 
-        Alert alert = driver.switchTo().alert();
-        String textModal = alert.getText();
-        alert.dismiss();
-       /* driver.findElement(By.cssSelector("#modal > div.modal-footer > p"))
-                        .click();*/
-
-        /*driver.findElement(By.cssSelector("#modal > div.modal > div.modal-body > p"))
-                .getText();*/
+        driver.switchTo().alert()
+                .dismiss();
 
         System.out.println("textModal");
         driver.quit();

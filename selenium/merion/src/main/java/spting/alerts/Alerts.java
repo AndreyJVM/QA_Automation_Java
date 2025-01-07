@@ -8,6 +8,7 @@ import spting.factory.WebDriverFactory;
 
 import java.util.List;
 
+// Work with modal windows
 public class Alerts {
     public static void main(String[] args) {
         WebDriver driver = WebDriverFactory.create("chrome");
