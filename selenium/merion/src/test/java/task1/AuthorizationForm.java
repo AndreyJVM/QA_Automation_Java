@@ -18,6 +18,10 @@ public class AuthorizationForm {
      * */
 
     public static void main(String[] args) {
+
+        String login = "tomsmith";
+        String password = "SuperSecretPassword!";
+
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("http://the-internet.herokuapp.com/login");
@@ -27,10 +31,10 @@ public class AuthorizationForm {
         WebElement loginButton = driver.findElement(By.cssSelector(".fa-sign-in"));
 
         inputLogin.clear();
-        inputLogin.sendKeys("tomsmith");
+        inputLogin.sendKeys(login);
 
         inputPassword.clear();
-        inputPassword.sendKeys("SuperSecretPassword!");
+        inputPassword.sendKeys(password);
 
         loginButton.click();
 

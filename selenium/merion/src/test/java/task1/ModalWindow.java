@@ -1,6 +1,7 @@
 package task1;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -19,12 +20,12 @@ public class ModalWindow {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("http://the-internet.herokuapp.com/entry_ad");
 
-        Thread.sleep(10_000);
+        Thread.sleep(3000);
 
-        driver.switchTo().alert()
-                .dismiss();
+        driver.findElement(By.cssSelector("#modal .modal-footer"))
+                        .click();
 
-        System.out.println("textModal");
+        System.out.println(driver.findElement(By.cssSelector("#content")).getText());
         driver.quit();
     }
 }

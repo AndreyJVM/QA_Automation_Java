@@ -19,7 +19,7 @@ public class ClickingOnTheCSSClassButton {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("http://uitestingplayground.com/classattr");
 
-        driver.findElement(By.cssSelector(".class3"))
+        driver.findElement(By.cssSelector(".btn .btn-primary"))
                 .click();
 
         driver.quit();
