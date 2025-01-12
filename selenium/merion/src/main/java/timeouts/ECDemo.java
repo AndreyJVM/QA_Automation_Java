@@ -40,5 +40,33 @@ public class ECDemo {
          * @return the (same) WebElement once it is visible
          */
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(""))));
+
+        // alert/confirm/prompt
+        wait.until(ExpectedConditions.alertIsPresent());
+
+        /**
+         * An expectation for checking that an element is present on the DOM of a page. This does not
+         * necessarily mean that the element is visible.
+         *
+         * @param locator used to find the element
+         * @return the WebElement once it is located
+         */
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("")));
+
+        /**
+         * An expectation for checking WebElement with given locator has attribute which contains specific
+         * value
+         *
+         * @param locator used to define WebElement to check its parameters
+         * @param attribute used to define css or html attribute
+         * @param value used as expected attribute value
+         * @return Boolean true when element has css or html attribute which contains the value
+         */
+        wait.until(ExpectedConditions.attributeContains(By.cssSelector(""), "class", "btn-success"));
+
+        wait.until(ExpectedConditions.titleIs("Message"));
+        wait.until(ExpectedConditions.titleContains("Message"));
+
+
     }
 }
