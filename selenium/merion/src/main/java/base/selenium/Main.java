@@ -1,9 +1,7 @@
-package spting;
+package base.selenium;
 
 import org.openqa.selenium.WebDriver;
-import spting.factory.WebDriverFactory;
-
-import java.io.File;
+import base.selenium.factory.WebDriverFactory;
 
 public class Main {
     public static void main(String[] args) {

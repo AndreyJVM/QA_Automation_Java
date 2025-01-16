@@ -1,10 +1,10 @@
-package spting.alerts;
+package base.selenium.alerts;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import spting.factory.WebDriverFactory;
+import base.selenium.factory.WebDriverFactory;
 
 import java.util.List;
 

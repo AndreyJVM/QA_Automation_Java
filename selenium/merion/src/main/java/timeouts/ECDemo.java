@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import spting.factory.WebDriverFactory;
+import base.selenium.factory.WebDriverFactory;
 
 import java.time.Duration;
 

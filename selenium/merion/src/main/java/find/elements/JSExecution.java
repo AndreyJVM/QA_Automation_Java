@@ -2,7 +2,7 @@ package find.elements;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import spting.factory.WebDriverFactory;
+import base.selenium.factory.WebDriverFactory;
 
 public class JSExecution {
 

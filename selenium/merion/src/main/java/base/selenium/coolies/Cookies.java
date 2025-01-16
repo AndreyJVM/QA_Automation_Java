@@ -1,10 +1,8 @@
-package spting.coolies;
+package base.selenium.coolies;
 
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
-import spting.factory.WebDriverFactory;
-
-import java.util.Date;
+import base.selenium.factory.WebDriverFactory;
 
 public class Cookies {
     public static void main(String[] args) {

@@ -1,8 +1,7 @@
-package spting.settings.browsers;
+package base.selenium.settings.browsers;
 
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import spting.factory.WebDriverFactory;
+import base.selenium.factory.WebDriverFactory;
 
 public class WindowManipulations {
 

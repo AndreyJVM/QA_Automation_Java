@@ -1,7 +1,7 @@
-package spting.navigate;
+package base.selenium.navigate;
 
 import org.openqa.selenium.WebDriver;
-import spting.factory.WebDriverFactory;
+import base.selenium.factory.WebDriverFactory;
 
 public class GetCurrentInfo {
 
