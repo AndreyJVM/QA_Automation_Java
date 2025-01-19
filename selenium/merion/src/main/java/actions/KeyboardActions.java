@@ -1,7 +1,6 @@
 package actions;
 
 import base.selenium.factory.WebDriverFactory;
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Platform;
