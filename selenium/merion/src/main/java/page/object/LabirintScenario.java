@@ -21,13 +21,8 @@ public class LabirintScenario {
         addAllItemsToCart();
         checkIconText();
         openCart();
-
-
-        String cardCounter = driver.findElement(By.cssSelector("#basket-default-prod-count2")).getText();
-        System.out.println("Count products: " + cardCounter);
-
-        String price = driver.findElement(By.cssSelector("#basket-default-sumprice-discount")).getText();
-        System.out.println("Price: " + price);
+        checkCardCounter();
+        checkPrice();
 
         driver.quit();
     }
@@ -64,4 +59,16 @@ public class LabirintScenario {
     private static void openCart() {
         driver.findElement(cartIconLocator).click();
     }
+
+    private static void checkCardCounter() {
+        String cardCounter = driver.findElement(By.cssSelector("#basket-default-prod-count2")).getText();
+        System.out.println("Count products: " + cardCounter);
+    }
+
+    private static void checkPrice() {
+        String price = driver.findElement(By.cssSelector("#basket-default-sumprice-discount")).getText();
+        System.out.println("Price: " + price);
+
+    }
+
 }
