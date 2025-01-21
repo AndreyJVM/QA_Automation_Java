@@ -27,7 +27,6 @@ public class LabirintScenario {
         driver.quit();
     }
 
-
     private static void open() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         driver.get("https://www.labirint.ru/books/");
