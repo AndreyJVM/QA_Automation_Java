@@ -4,6 +4,7 @@ import base.selenium.factory.WebDriverFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import page.object.page.CartPage;
 import page.object.page.MainPage;
 import page.object.page.ResultPage;
 
@@ -16,31 +17,16 @@ public class LabirintScenario {
         WebDriver driver = WebDriverFactory.create("chrome");
         MainPage mainPage = new MainPage(driver);
         ResultPage resultPage = new ResultPage(driver);
+        CartPage cartPage = new CartPage(driver);
 
         mainPage.open();
         mainPage.searchFor("Java");
         resultPage.addAllItemsToCart();
         resultPage.checkIconText();
-        openCart();
-        checkCardCounter();
-        checkPrice();
+        cartPage.openCart();
+        cartPage.checkCardCounter();
+        cartPage.checkPrice();
 
         driver.quit();
     }
-
-    private static void openCart() {
-        driver.findElement(cartIconLocator).click();
-    }
-
-    private static void checkCardCounter() {
-        String cardCounter = driver.findElement(By.cssSelector("#basket-default-prod-count2")).getText();
-        System.out.println("Count products: " + cardCounter);
-    }
-
-    private static void checkPrice() {
-        String price = driver.findElement(By.cssSelector("#basket-default-sumprice-discount")).getText();
-        System.out.println("Price: " + price);
-
-    }
-
 }
