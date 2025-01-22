@@ -7,12 +7,10 @@ import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
-public class MainPage {
-
-    private final WebDriver driver;
+public class MainPage extends BasePage{
 
     public MainPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void open() {

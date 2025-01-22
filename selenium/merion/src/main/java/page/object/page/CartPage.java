@@ -3,13 +3,12 @@ package page.object.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CartPage {
+public class CartPage extends BasePage{
 
-    private final WebDriver driver;
     private By cartIconLocator = By.cssSelector(".b-header-b-personal-e-icon-count-m-cart");
 
     public CartPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void openCart() {

@@ -9,13 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class ResultPage {
+public class ResultPage extends BasePage{
 
-    private final WebDriver driver;
     private By cartIconLocator = By.cssSelector(".b-header-b-personal-e-icon-count-m-cart");
 
     public ResultPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void addAllItemsToCart() {
@@ -32,5 +31,9 @@ public class ResultPage {
     public void checkIconText() {
         String cardIconCounter = driver.findElement(cartIconLocator).getText();
         System.out.println("Count products: " + cardIconCounter);
+    }
+
+    public void checkEmptyResult() {
+        String message = driver.findElement(By.cssSelector("h1")).getText();
     }
 }
