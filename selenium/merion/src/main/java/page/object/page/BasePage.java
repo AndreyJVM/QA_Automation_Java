@@ -1,19 +1,16 @@
 package page.object.page;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
 
     protected final WebDriver driver;
-    private final HeaderElement headerElement;
+    public final HeaderElement headerElement;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.headerElement = new HeaderElement(driver);
-    }
-
-    public HeaderElement getHeaderElement() {
-        return headerElement;
+        this.headerElement = PageFactory.initElements(driver, HeaderElement.class);
     }
 
     public WebDriver getDriver() {

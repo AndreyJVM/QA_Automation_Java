@@ -12,6 +12,6 @@ public class MainPage extends BasePage{
     }
 
     public void open() {
-        driver.get("https://www.labirint.ru/books/");
+        driver.get("https://www.labirint.ru/");
     }
 }

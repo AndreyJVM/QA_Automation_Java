@@ -54,6 +54,7 @@ public class WDFactory {
 
     public static WebDriver create(EdgeOptions options) {
         WebDriver driver = new EdgeDriver(new EdgeOptions().merge(options));
+        driver.get("https://www.labirint.ru/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         Cookie cookie = new Cookie("cookie_policy", "1");
         driver.manage().addCookie(cookie);
