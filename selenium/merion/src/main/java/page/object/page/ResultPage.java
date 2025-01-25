@@ -24,13 +24,9 @@ public class ResultPage extends BasePage{
             card.findElement(By.cssSelector(".buy-link")).click();
             counter++;
         }
+        //TODO: move to header
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.textToBe(cartIconLocator, String.valueOf(counter)));
-    }
-
-    public void checkIconText() {
-        String cardIconCounter = driver.findElement(cartIconLocator).getText();
-        System.out.println("Count products: " + cardIconCounter);
     }
 
     public void checkEmptyResult() {
