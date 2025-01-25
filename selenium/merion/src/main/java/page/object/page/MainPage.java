@@ -12,9 +12,6 @@ public class MainPage extends BasePage{
     }
 
     public void open() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         driver.get("https://www.labirint.ru/books/");
-        Cookie cookie = new Cookie("cookie_policy", "1");
-        driver.manage().addCookie(cookie);
     }
 }

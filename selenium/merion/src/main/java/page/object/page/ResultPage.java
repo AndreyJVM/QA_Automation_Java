@@ -29,7 +29,7 @@ public class ResultPage extends BasePage{
         wait.until(ExpectedConditions.textToBe(cartIconLocator, String.valueOf(counter)));
     }
 
-    public void checkEmptyResult() {
+    public void getEmptyResult() {
         String message = driver.findElement(By.cssSelector("h1")).getText();
     }
 }

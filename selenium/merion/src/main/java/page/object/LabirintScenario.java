@@ -1,16 +1,15 @@
 package page.object;
 
-import base.selenium.factory.WebDriverFactory;
 import org.openqa.selenium.*;
+import page.object.factory.WDFactory;
 import page.object.page.CartPage;
-import page.object.page.HeaderElement;
 import page.object.page.MainPage;
 import page.object.page.ResultPage;
 
 public class LabirintScenario {
 
     public static void main(String[] args) {
-        WebDriver driver = WebDriverFactory.create("chrome");
+        WebDriver driver = WDFactory.create("chrome");
 
         MainPage mainPage = new MainPage(driver);
         mainPage.open();
@@ -19,14 +18,15 @@ public class LabirintScenario {
 
         ResultPage resultPage = new ResultPage(driver);
         resultPage.addAllItemsToCart();
-        resultPage.getHeaderElement().checkIconText();
+        resultPage.getHeaderElement().getIconText();
 
 
         CartPage cartPage = resultPage.getHeaderElement().openCartIcon();
-        cartPage
-                .checkCardCounter()
-                .checkPrice();
+        String counter = cartPage.getCardCounter();
+        String price = cartPage.getCartPrice();
 
+        System.out.println("counter = " + counter);
+        System.out.println("price = " + price);
         driver.quit();
     }
 }

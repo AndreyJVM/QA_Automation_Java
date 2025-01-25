@@ -20,7 +20,7 @@ public class HeaderElement {
         return new ResultPage(driver);
     }
 
-    public void checkIconText() {
+    public void getIconText() {
         String cardIconCounter = driver.findElement(cartIconLocator).getText();
         System.out.println("Count products: " + cardIconCounter);
     }
