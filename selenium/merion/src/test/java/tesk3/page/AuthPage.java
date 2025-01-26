@@ -37,9 +37,10 @@ public class AuthPage {
         return this;
     }
 
-    public void loginAs(String username, String password) {
+    public CatalogPage loginAs(String username, String password) {
         usernameCss.sendKeys(username);
         passwordCss.sendKeys(password);
         loginButtonCss.click();
+        return new CatalogPage(driver);
     }
 }

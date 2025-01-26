@@ -8,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import tesk3.page.AuthPage;
+import tesk3.page.CalculatorPage;
+import tesk3.page.CartCheckoutPage;
+import tesk3.page.CatalogPage;
 
 import java.time.Duration;
 import java.util.HashSet;
@@ -18,23 +21,26 @@ import java.util.Set;
  * Открыть сайт магазина https://www.saucedemo.com/
  * Авторизоваться под пользователем standard_user
  * Добавить в корзину товары:
- *      Sauce Labs Backpack
- *      Sauce Labs Bolt T-Shirt
- *      Sauce Labs Onesie
+ * Sauce Labs Backpack
+ * Sauce Labs Bolt T-Shirt
+ * Sauce Labs Onesie
  * Перейти в корзину
  * Нажать Checkout
  * Заполнить форму данными:
- *      Имя
- *      Фамиля
- *      Почтовый индекс
+ * Имя
+ * Фамиля
+ * Почтовый индекс
  * Нажать continue
  * Прочитать со стрницы итоговую стоимость ( Total )
  * Закрыть браузер
  * Вывести в консоль итоговую стоимость ```
- * */
+ */
 
 @Execution(ExecutionMode.CONCURRENT)
 public class OrderMarket {
+    WebDriver driver;
+    CatalogPage catalogPage;
+    AuthPage authPage;
 
     @RepeatedTest(3)
     void getTotalPrice() {
@@ -50,33 +56,23 @@ public class OrderMarket {
         String secondName = "Raw";
         String postalCode = "1011010";
 
-        WebDriver driver = new ChromeDriver();
-        AuthPage authPage = new AuthPage(driver).open();
-        authPage.loginAs(username, password);
+        driver = new ChromeDriver();
 
-        List<WebElement> items = driver.findElements(By.cssSelector(".inventory_item"));
+        try {
+            authPage = new AuthPage(driver).open();
 
-        for (WebElement item : items) {
-            String productName = item.findElement(By.cssSelector(".inventory_item_name")).getText();
-            if(itemNames.contains(productName)){
-                item.findElement(By.cssSelector("button")).click();
-            }
+            catalogPage = authPage.loginAs(username, password);
+            catalogPage.addItems(itemNames);
+
+            String total = new CartCheckoutPage(driver)
+                    .open()
+                    .clickCheckout()
+                    .setContactData(firstName, secondName, postalCode)
+                    .getTotalPrice();
+
+            System.out.println(total);
+        } finally {
+            driver.quit();
         }
-
-        driver.findElement(By.cssSelector("#shopping_cart_container")).click();
-
-        driver.findElement(By.cssSelector("#checkout")).click();
-
-        driver.findElement(By.cssSelector("#first-name")).sendKeys(firstName);
-        driver.findElement(By.cssSelector("#last-name")).sendKeys(secondName);
-        driver.findElement(By.cssSelector("#postal-code")).sendKeys(postalCode);
-
-        driver.findElement(By.cssSelector("#continue")).click();
-
-        String total = driver.findElement(By.cssSelector(".summary_total_label")).getText();
-
-        driver.quit();
-
-        System.out.println(total);
     }
 }
