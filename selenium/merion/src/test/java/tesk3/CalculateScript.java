@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import tesk3.page.CalculatorPage;
 
 /**
  * Открыть страницу https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html
@@ -20,24 +21,15 @@ public class CalculateScript {
 
     public static void main(String[] args) {
 
-        int timeout = 7;
-
         WebDriver driver = new ChromeDriver();
-        driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html");
+        CalculatorPage calculatorPage = new CalculatorPage(driver).open();
 
-        driver.findElement(By.cssSelector("#delay"))
-                .clear();
-        driver.findElement(By.cssSelector("#delay"))
-                .sendKeys(String.valueOf(timeout));
+        calculatorPage.sendKeysDelay();
 
-        WebElement keyboard = driver.findElement(By.cssSelector(".keys"));
-
-        keyboard.findElement(By.xpath("//*[text() = '7']")).click();
-        keyboard.findElement(By.xpath("//*[text() = '+']")).click();
-        keyboard.findElement(By.xpath("//*[text() = '8']")).click();
-        keyboard.findElement(By.xpath("//*[text() = '=']")).click();
-
-        // write
+        calculatorPage.press("7");
+        calculatorPage.press("+");
+        calculatorPage.press("8");
+        calculatorPage.press("=");
 
         driver.quit();
     }
