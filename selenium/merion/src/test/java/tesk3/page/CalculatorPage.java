@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CalculatorPage {
     private final WebDriver driver;
@@ -12,7 +15,7 @@ public class CalculatorPage {
 
     private final String BASE_URL = "https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html";
 
-    private static final String KEYS_CSS = ".key";
+    private static final String KEYS_CSS = ".keys";
     private static final String DELAY_CSS = "#delay";
 
     @FindBy(css = KEYS_CSS)
@@ -23,6 +26,7 @@ public class CalculatorPage {
 
     public CalculatorPage(WebDriver driver) {
         this.driver = driver;
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         PageFactory.initElements(driver, this);
     }
 
