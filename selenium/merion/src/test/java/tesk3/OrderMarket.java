@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import tesk3.page.AuthPage;
 
 import java.time.Duration;
 import java.util.HashSet;
@@ -50,12 +51,8 @@ public class OrderMarket {
         String postalCode = "1011010";
 
         WebDriver driver = new ChromeDriver();
-        driver.get("https://www.saucedemo.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-
-        driver.findElement(By.cssSelector("#user-name")).sendKeys(username);
-        driver.findElement(By.cssSelector("#password")).sendKeys(postalCode);
-        driver.findElement(By.cssSelector("#login-button")).click();
+        AuthPage authPage = new AuthPage(driver).open();
+        authPage.loginAs(username, password);
 
         List<WebElement> items = driver.findElements(By.cssSelector(".inventory_item"));
 
