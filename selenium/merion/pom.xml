@@ -18,6 +18,7 @@
 
         <junit.jupiter.verion>5.8.0-M1</junit.jupiter.verion>
         <selenium-java.version>4.27.0</selenium-java.version>
+        <selenide.version>7.2.1</selenide.version>
     </properties>
 
     <dependencies>
@@ -39,6 +40,12 @@
             <version>${junit.jupiter.verion}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
