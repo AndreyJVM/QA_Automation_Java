@@ -1,10 +1,10 @@
 package task4;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
+import com.codeborne.selenide.Condition;
 import java.time.Duration;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 /**
  * Перейти на страницу http://uitestingplayground.com/ajax
@@ -16,16 +16,11 @@ import java.time.Duration;
 public class ClickOnButton {
 
     public static void main(String[] args) {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.get("http://uitestingplayground.com/ajax");
+        open("http://uitestingplayground.com/ajax");
 
-        driver.findElement(By.cssSelector("#ajaxButton"))
-                .click();
+       $("#ajaxButton").click();
 
-        String textRequest = driver.findElement(By.cssSelector("#content > p")).getText();
+        String textRequest = $("#content p").shouldBe(Condition.visible, Duration.ofSeconds(16)).getText();
         System.out.println("Text from the green field: \"" + textRequest +"\"");
-
-        driver.quit();
     }
 }

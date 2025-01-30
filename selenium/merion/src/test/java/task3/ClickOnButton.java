@@ -1,8 +1,8 @@
-package tesk3;
+package task3;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import tesk3.page.AjaxPage;
+import task3.page.AjaxPage;
 
 import java.time.Duration;
 

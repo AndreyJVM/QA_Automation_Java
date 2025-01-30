@@ -1,11 +1,8 @@
-package tesk3;
+package task3;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import tesk3.page.ImageGalleryPage;
-
-import java.time.Duration;
-import java.util.List;
+import task3.page.ImageGalleryPage;
 
 /**
  * Перейти на сайт https://bonigarcia.dev/selenium-webdriver-java/loading-images.html

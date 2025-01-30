@@ -31,11 +31,11 @@ public class CalculateScript {
         $("#delay").clear();
         $("#delay").sendKeys(String.valueOf(timeout));
 
-        SelenideElement keyboard = $(".keys");
+        //SelenideElement keyboard = $(".keys");
 
-        keyboard.$x("//*[text() = '7']").click();
-        keyboard.$x("//*[text() = '+']").click();
-        keyboard.$x("//*[text() = '8']").click();
-        keyboard.$x("//*[text() = '=']").click();
+        $(".keys").$x("//*[text() = '7']").click();
+        $(".keys").$x("//*[text() = '+']").click();
+        $(".keys").$x("//*[text() = '8']").click();
+        $(".keys").$x("//*[text() = '=']").click();
     }
 }

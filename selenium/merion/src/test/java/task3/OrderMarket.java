@@ -1,20 +1,15 @@
-package tesk3;
+package task3;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import tesk3.page.AuthPage;
-import tesk3.page.CalculatorPage;
-import tesk3.page.CartCheckoutPage;
-import tesk3.page.CatalogPage;
+import task3.page.AuthPage;
+import task3.page.CartCheckoutPage;
+import task3.page.CatalogPage;
 
-import java.time.Duration;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**

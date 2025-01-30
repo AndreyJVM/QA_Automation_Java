@@ -1,13 +1,8 @@
-package tesk3;
+package task3;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import tesk3.page.TextInputPage;
-
-import java.time.Duration;
+import task3.page.TextInputPage;
 
 /**
  * Перейти на сайт http://uitestingplayground.com/textinput

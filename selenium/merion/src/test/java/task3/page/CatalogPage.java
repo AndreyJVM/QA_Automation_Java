@@ -1,4 +1,4 @@
-package tesk3.page;
+package task3.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

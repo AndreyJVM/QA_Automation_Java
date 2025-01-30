@@ -1,8 +1,8 @@
-package tesk3;
+package task3;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import tesk3.page.CalculatorPage;
+import task3.page.CalculatorPage;
 
 /**
  * Открыть страницу https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html

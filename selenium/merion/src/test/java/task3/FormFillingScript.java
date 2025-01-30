@@ -1,8 +1,8 @@
-package tesk3;
+package task3;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import tesk3.page.RegisterPage;
+import task3.page.RegisterPage;
 
 public class FormFillingScript {
     /**
