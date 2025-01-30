@@ -22,5 +22,9 @@ public class ElementsCollectionsDemo {
 
         $(".b-header-b-personal-e-icon-count-m-cart")
                 .shouldHave(Condition.text(String.valueOf(cards.size())));
+
+        String text = $(".b-header-b-personal-e-icon-count-m-cart").getText();
+
+        refresh();
     }
 }
