@@ -15,5 +15,6 @@ public class CardElement {
 
     public CardElement addToCart() {
         buyButton.click();
+        return this;
     }
 }
