@@ -3,7 +3,7 @@ package vorobev.aqa;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "app_user") // Указываем новое имя таблицы
+@Table(name = "app_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
