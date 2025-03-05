@@ -18,12 +18,14 @@ public class XClientsTest {
     public static final String URL = "https://x-clients-be.onrender.com/company";
     public static final String URL_LOGIN = "https://x-clients-be.onrender.com/auth/login";
     private OkHttpClient client;
-    private final MediaType JSON = MediaType.get("application/json");;
+    private final MediaType JSON = MediaType.get("application/json");
+    ObjectMapper mapper;
 
     @BeforeEach
     public void setUp() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor(new MyCustomLogger());
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        mapper = new ObjectMapper();
         client = new OkHttpClient.Builder().addNetworkInterceptor(interceptor).build();
     }
 
@@ -86,6 +88,33 @@ public class XClientsTest {
 
         String json = """
                 {
+                  "name": "ping",
+                  "description": "pong"
+                }
+                """;
+
+
+        RequestBody reqBody = RequestBody.create(json, JSON);
+        Request createRequest = new Request.Builder()
+                .url(URL)
+                .header("x-client-token", getToken())
+                .post(reqBody)
+                .build();
+
+        Response response = client.newCall(createRequest).execute();
+
+        JsonNode jsonNode = mapper.readTree(response.body().string());
+
+        int newID = jsonNode.get("id").asInt();
+
+        assertEquals(201, response.code());
+        assertTrue(newID > 0);
+    }
+
+    private String getToken() throws IOException {
+
+        String json = """
+                {
                   "username": "leonardo",
                   "password": "leads"
                 }
@@ -97,27 +126,8 @@ public class XClientsTest {
 
         String body = response.body().string();
 
-        ObjectMapper mapper = new ObjectMapper();
+
         JsonNode jsonNode = mapper.readTree(body);
-        String token = jsonNode.get("userToken").asText();
-
-        json = """
-                {
-                  "name": "ping",
-                  "description": "pong"
-                }
-                """;
-
-
-        RequestBody reqBody = RequestBody.create(json, JSON);
-        Request createRequest = new Request.Builder()
-                .url(URL)
-                .header("x-client-token", token)
-                .post(reqBody)
-                .build();
-
-        response = client.newCall(createRequest).execute();
-
-        assertEquals(201, response.code());
+        return jsonNode.get("userToken").asText();
     }
 }
