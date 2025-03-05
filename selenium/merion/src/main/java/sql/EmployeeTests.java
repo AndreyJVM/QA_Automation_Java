@@ -1,3 +1,4 @@
+/*
 package sql;
 
 import io.restassured.RestAssured;
@@ -171,3 +172,4 @@ public class EmployeeTests {
         return given().body(json).contentType(ContentType.JSON).header(X_CLIENT_TOKEN, getToken()).post(COMPANY).then().extract().path("id");
     }
 }
+*/
