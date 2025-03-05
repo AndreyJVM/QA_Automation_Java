@@ -105,10 +105,39 @@ public class XClientsTest {
 
         JsonNode jsonNode = mapper.readTree(response.body().string());
 
-        int newID = jsonNode.get("id").asInt();
+        int newID = createDummyCompany();
 
         assertEquals(201, response.code());
         assertTrue(newID > 0);
+    }
+
+    @Test
+    public void shouldDeleteCompany() throws IOException {
+        int id = createDummyCompany();
+        Request request = new Request.Builder()
+                .header("x-client-token", getToken())
+                .url(URL + "/delete/" + id)
+                .build();
+
+        Response response = client.newCall(request).execute();
+        String body = response.body().string();
+        JsonNode node = mapper.readTree(body);
+
+        assertEquals(200, response.code());
+        assertEquals(id, node.get("id").asInt());
+    }
+
+    @Test
+    public void shouldReturn401OnDeleteCompany() throws IOException{
+        int id = createDummyCompany();
+        Request request = new Request.Builder()
+                .url(URL + "/delete/" + id)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        assertEquals(401, response.code());
+        assertEquals("{\"statusCode\":401,\"message\":\"Unauthorized\"}", response.body().string());
     }
 
     private String getToken() throws IOException {
@@ -129,5 +158,26 @@ public class XClientsTest {
 
         JsonNode jsonNode = mapper.readTree(body);
         return jsonNode.get("userToken").asText();
+    }
+
+    private int createDummyCompany() throws IOException {
+        String json = """
+                {
+                  "name": "Well be deleted",
+                  "description": "pong"
+                }
+                """;
+
+        RequestBody reqBody = RequestBody.create(json, JSON);
+        Request createRequest = new Request.Builder()
+                .url(URL)
+                .header("x-client-token", getToken())
+                .post(reqBody)
+                .build();
+
+        Response response = client.newCall(createRequest).execute();
+        JsonNode jsonNode = mapper.readTree(response.body().string());
+
+        return jsonNode.get("id").asInt();
     }
 }
