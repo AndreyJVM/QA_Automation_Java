@@ -154,6 +154,7 @@ public class XClientsTest {
 
         Response response = client.newCall(request).execute();
 
+        assertTrue(response.body().string().isEmpty());
         assertEquals(404, response.code());
     }
 
