@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp.logger.MyCustomLogger;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import java.io.IOException;
@@ -84,7 +85,7 @@ public class XClientsTest {
     }
 
     @Test
-    public void shouldReturn201OnCompanyCreated() throws IOException {
+    public void shouldReturn201CompanyCreated() throws IOException {
 
         String json = """
                 {
@@ -138,6 +139,22 @@ public class XClientsTest {
 
         assertEquals(401, response.code());
         assertEquals("{\"statusCode\":401,\"message\":\"Unauthorized\"}", response.body().string());
+    }
+
+    @Test
+    @Tag("defect")
+    public void shouldGet404DeleteNonExistedCompany() throws IOException {
+        int id = createDummyCompany();
+        Request request = new Request.Builder()
+                .header("x-client-token", getToken())
+                .url(URL + "/delete/" + id)
+                .build();
+
+        client.newCall(request).execute();
+
+        Response response = client.newCall(request).execute();
+
+        assertEquals(404, response.code());
     }
 
     private String getToken() throws IOException {
