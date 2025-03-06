@@ -1,4 +1,4 @@
-package contract;
+package okhttp3.tests.contract;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

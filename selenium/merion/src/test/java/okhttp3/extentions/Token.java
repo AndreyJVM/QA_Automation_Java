@@ -1,4 +1,4 @@
-package extentions;
+package okhttp3.extentions;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

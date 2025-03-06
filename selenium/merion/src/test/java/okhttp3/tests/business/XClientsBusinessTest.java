@@ -1,12 +1,11 @@
-package business;
+package okhttp3.tests.business;
 
-import extentions.ClientProvider;
-import extentions.Token;
-import extentions.TokenProvider;
+import okhttp3.extentions.ClientProvider;
+import okhttp3.extentions.Token;
+import okhttp3.extentions.TokenProvider;
 import okhttp.clients.XClientsWebClient;
 import okhttp.clients.model.Company;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -61,8 +60,11 @@ public class XClientsBusinessTest {
     }
 
     @Test
-    public void shouldDeleteCompany() {
+    public void shouldDeleteCompany(XClientsWebClient xClient, @Token(login = "leonardo", password = "leads") String token) throws IOException {
+       int id = xClient.create("Delete_A", "Delete_B", token);
+        Company deletedInfo = xClient.deleteById(123, token);
 
+        assertEquals(123, deletedInfo.id());
     }
 
     @AfterEach
