@@ -1,4 +1,4 @@
-package okhttp3.extentions;
+package api.extentions;
 
 import okhttp.clients.XClientsWebClient;
 import org.junit.jupiter.api.extension.ExtensionContext;

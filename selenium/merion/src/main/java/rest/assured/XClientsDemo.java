@@ -15,7 +15,6 @@ public class XClientsDemo {
         xClientsWebClientRestAssured = new XClientsWebClientRestAssured("https://x-clients-be.onrender.com");
 
         String token = xClientsWebClientRestAssured.getToken("leonardo", "leads");
-        Response response = xClientsWebClientRestAssured.create("Demo Delete this company", "fake company", token);
-        response.then().body("id", notNullValue());
+        int response = xClientsWebClientRestAssured.create("Demo Delete this company", "fake company", token);
     }
 }

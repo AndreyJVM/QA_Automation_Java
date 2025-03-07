@@ -1,8 +1,8 @@
-package okhttp3.tests.business;
+package api.okhttp3.business;
 
-import okhttp3.extentions.ClientProvider;
-import okhttp3.extentions.Token;
-import okhttp3.extentions.TokenProvider;
+import api.extentions.ClientProvider;
+import api.extentions.Token;
+import api.extentions.TokenProvider;
 import okhttp.clients.XClientsWebClient;
 import okhttp.clients.model.Company;
 import org.junit.jupiter.api.AfterEach;

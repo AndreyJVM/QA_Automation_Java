@@ -1,4 +1,4 @@
-package okhttp3.extentions;
+package api.extentions;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,4 +11,5 @@ public @interface Token {
     String login();
     String password();
 
+    boolean createNewUser() default false;
 }

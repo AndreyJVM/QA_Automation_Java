@@ -22,6 +22,7 @@
         <okhttp.version>4.12.0</okhttp.version>
         <jackson-databind.version>2.17.0</jackson-databind.version>
         <rest-assured.version>5.5.1</rest-assured.version>
+        <swagger-request-validator-restassured.version>2.40.0</swagger-request-validator-restassured.version>
     </properties>
 
     <dependencies>
@@ -70,5 +71,10 @@
             <version>${rest-assured.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.atlassian.oai</groupId>
+            <artifactId>swagger-request-validator-restassured</artifactId>
+            <version>${swagger-request-validator-restassured.version}</version>
+        </dependency>
     </dependencies>
 </project>
