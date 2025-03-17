@@ -1,0 +1,6 @@
+services:
+
+  app:
+    image: qaway/bookstore-app:1.0
+    ports:
+      - "8080:8080"
