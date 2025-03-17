@@ -17,8 +17,6 @@
 
     <modules>
         <module>algorithms</module>
-        <module>bash</module>
-        <module>docker</module>
         <module>junit5</module>
         <module>selenium</module>
         <module>springaqa</module>
