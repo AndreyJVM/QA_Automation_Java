@@ -7,19 +7,16 @@ import java.sql.SQLException;
 
 public class DBConnectDemo {
 
-    public static final String CONNECTION_STRING = "jdbc:postgresql://dpg-cn1542en7f5s73fdrigg-a.frankfurt-postgres.render.com/x_clients_xxet";
-    public static final String USERNAME = "x_clients_user";
-    public static final String PASSWORD = "x7ngHjC1h08a85bELNifgKmqZa8KIR40";
+    public static final String CONNECTION_STRING = "jdbc:postgresql://51.250.26.13/pg-x-clients-be";
+    public static final String USERNAME = "merionpg";
+    public static final String PASSWORD = "UZObS42{8>}>";
 
     public static void main(String[] args) throws SQLException {
         Connection connection = DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD);
 
-        ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM company");
-
-        resultSet = connection.createStatement().executeQuery("SELECT count(*) FROM company");
-        resultSet.next();
-        System.out.println(resultSet.getInt(1));
-
+        ResultSet resultSet = connection
+                .createStatement()
+                .executeQuery("SELECT * FROM company");
 
         String insert = "insert into company(\"name\") values('Рога и копыта');";
 
@@ -33,6 +30,10 @@ public class DBConnectDemo {
             System.out.println(resultSet.getString("description"));
             System.out.println(resultSet.getString("is_active"));
         }
+
+        resultSet = connection.createStatement().executeQuery("SELECT count(*) FROM company");
+        resultSet.next();
+        System.out.println(resultSet.getInt(1));
 
         connection.close();
     }
