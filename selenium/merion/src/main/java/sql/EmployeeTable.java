@@ -1,7 +1,5 @@
 package sql;
 
-
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,38 +26,14 @@ public class EmployeeTable {
         return rs.getInt(1);
     }
 
-    public List<Employee> getAll() throws SQLException {
-        List<Employee> list = new ArrayList<>();
-        ResultSet rs = connection.createStatement().executeQuery(SQL_GET_ALL);
-        while(rs.next()){
-            Employee e = new Employee(
-                    rs.getInt("id"),
-                    rs.getString("first_name"),
-                    rs.getString("last_name"),
-                    rs.getBoolean("is_active"),
-                    rs.getInt("company_id"),
-                    rs.getString("email"),
-                    rs.getString("phone")
-            );
-            list.add(e);
-        }
-        return list;
+    public ResultSet getAll() throws SQLException {
+        return connection.createStatement().executeQuery(SQL_GET_ALL);
     }
 
-    public Employee getById(int id) throws SQLException {
+    public ResultSet getById(int id) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(SQL_GET_BY_ID);
         statement.setInt(1, id);
-        ResultSet rs = statement.executeQuery();
-        rs.next();
-        return new Employee(
-                rs.getInt("id"),
-                rs.getString("first_name"),
-                rs.getString("last_name"),
-                rs.getBoolean("is_active"),
-                rs.getInt("company_id"),
-                rs.getString("email"),
-                rs.getString("phone")
-        );
+        return statement.executeQuery();
     }
 
     public void deleteById(int id) throws SQLException {
@@ -86,7 +60,4 @@ public class EmployeeTable {
         rs.next();
         return rs.getInt(1);
     }
-
-
-
 }

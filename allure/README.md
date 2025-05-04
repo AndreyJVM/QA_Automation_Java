@@ -111,3 +111,9 @@
 ```java
 @Step("Compare user name to something")
 ```
+
+## Base command
+
+```shell
+allure serve
+```
